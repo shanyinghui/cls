@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinfusi.freedom.rm.mapper.IRmPenaltytalZlMapper">
+    <resultMap id="BaseResultMap" type="com.sinfusi.freedom.rm.entity.RmPenaltytalZl">
+        <result property="id" column="ID"/>
+        <result property="orderId" column="ORDER_ID"/>
+        <result property="custId" column="CUST_ID"/>
+        <result property="brandCode" column="BRAND_CODE"/>
+        <result property="resoureCode" column="RESOURE_CODE"/>
+        <result property="saleTypeId" column="SALE_TYPE_ID"/>
+        <result property="agentCode" column="AGENT_CODE"/>
+        <result property="instcode" column="INSTCODE"/>
+        <result property="planDate" column="PLAN_DATE"/>
+        <result property="factPenAmt" column="FACT_PEN_AMT"/>
+        <result property="restPenAmt" column="REST_PEN_AMT"/>
+        <result property="lastRetDate" column="LAST_RET_DATE"/>
+        <result property="penStateId" column="PEN_STATE_ID"/>
+        <result property="isPayId" column="IS_PAY_ID"/>
+        <result column="created_by" property="createdBy" />
+        <result column="created_date" property="createdDate" />
+        <result column="last_modified_by" property="lastModifiedBy" />
+        <result column="last_modified_date" property="lastModifiedDate" />
+    </resultMap>
+    <sql id="Criteria_Where_Clause">
+        <where>
+            <if test="criteria != null">
+                <if test="criteria.id != null">
+                    <if test="criteria.id.equals != null">
+                        and ID =#{criteria.id.equals}
+                    </if>
+                </if>
+                <if test="criteria.orderId != null">
+                    <if test="criteria.orderId.equals != null">
+                        and ORDER_ID =#{criteria.orderId.equals}
+                    </if>
+                </if>
+                <if test="criteria.custId != null">
+                    <if test="criteria.custId.equals != null">
+                        and CUST_ID =#{criteria.custId.equals}
+                    </if>
+                </if>
+                <if test="criteria.brandCode != null">
+                    <if test="criteria.brandCode.equals != null">
+                        and BRAND_CODE =#{criteria.brandCode.equals}
+                    </if>
+                </if>
+                <if test="criteria.resoureCode != null">
+                    <if test="criteria.resoureCode.equals != null">
+                        and RESOURE_CODE =#{criteria.resoureCode.equals}
+                    </if>
+                </if>
+                <if test="criteria.saleTypeId != null">
+                    <if test="criteria.saleTypeId.equals != null">
+                        and SALE_TYPE_ID =#{criteria.saleTypeId.equals}
+                    </if>
+                </if>
+                <if test="criteria.agentCode != null">
+                    <if test="criteria.agentCode.equals != null">
+                        and AGENT_CODE =#{criteria.agentCode.equals}
+                    </if>
+                </if>
+                <if test="criteria.instcode != null">
+                    <if test="criteria.instcode.equals != null">
+                        and INSTCODE =#{criteria.instcode.equals}
+                    </if>
+                </if>
+                <if test="criteria.planDate != null">
+                    <if test="criteria.planDate.equals != null">
+                        and PLAN_DATE =#{criteria.planDate.equals}
+                    </if>
+                </if>
+                <if test="criteria.factPenAmt != null">
+                    <if test="criteria.factPenAmt.equals != null">
+                        and FACT_PEN_AMT =#{criteria.factPenAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.restPenAmt != null">
+                    <if test="criteria.restPenAmt.equals != null">
+                        and REST_PEN_AMT =#{criteria.restPenAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.lastRetDate != null">
+                    <if test="criteria.lastRetDate.equals != null">
+                        and LAST_RET_DATE =#{criteria.lastRetDate.equals}
+                    </if>
+                </if>
+                <if test="criteria.penStateId != null">
+                    <if test="criteria.penStateId.equals != null">
+                        and PEN_STATE_ID =#{criteria.penStateId.equals}
+                    </if>
+                </if>
+                <if test="criteria.isPayId != null">
+                    <if test="criteria.isPayId.equals != null">
+                        and IS_PAY_ID =#{criteria.isPayId.equals}
+                    </if>
+                </if>
+                <if test="criteria.createdBy != null">
+                    <if test="criteria.createdBy.equals != null">
+                      and created_by =#{criteria.createdBy.equals}
+                    </if>
+                </if>
+                <if test="criteria.createdDate != null">
+                    <if test="criteria.createdDate.equals != null">
+                      and created_date =#{criteria.createdDate.equals}
+                    </if>
+                </if>
+                <if test="criteria.lastModifiedBy != null">
+                    <if test="criteria.lastModifiedBy.equals != null">
+                      and last_modified_by =#{criteria.lastModifiedBy.equals}
+                    </if>
+                </if>
+                <if test="criteria.lastModifiedDate != null">
+                    <if test="criteria.lastModifiedDate.equals != null">
+                      and last_modified_date =#{criteria.lastModifiedDate.equals}
+                    </if>
+                </if>
+            </if>
+        </where>
+    </sql>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        ID,
+        ORDER_ID,
+        CUST_ID,
+        BRAND_CODE,
+        RESOURE_CODE,
+        SALE_TYPE_ID,
+        AGENT_CODE,
+        INSTCODE,
+        PLAN_DATE,
+        FACT_PEN_AMT,
+        REST_PEN_AMT,
+        LAST_RET_DATE,
+        PEN_STATE_ID,
+        IS_PAY_ID,
+        created_by,
+        created_date,
+        last_modified_by,
+        last_modified_date
+    </sql>
+    <delete id="deleteById" >
+        delete from rm_penaltytal_zl where id = #{id}
+    </delete>
+    <insert id="insert" parameterType="com.sinfusi.freedom.rm.entity.RmPenaltytalZl">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+            SELECT UUID()
+        </selectKey>
+        insert into rm_penaltytal_zl
+        (
+          <include refid="Base_Column_List"></include>
+        )
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                #{id},
+                #{orderId},
+                #{custId},
+                #{brandCode},
+                #{resoureCode},
+                #{saleTypeId},
+                #{agentCode},
+                #{instcode},
+                #{planDate},
+                #{factPenAmt},
+                #{restPenAmt},
+                #{lastRetDate},
+                #{penStateId},
+                #{isPayId},
+                #{createdBy},
+                #{createdDate},
+                #{lastModifiedBy},
+                #{lastModifiedDate},
+        </trim>
+    </insert>
+    <update id="updateByExample" parameterType="map">
+        update rm_penaltytal_zl
+        <set>
+                <if test = "record.id != null">ID=#{record.id},</if>
+                <if test = "record.orderId != null">ORDER_ID=#{record.orderId},</if>
+                <if test = "record.custId != null">CUST_ID=#{record.custId},</if>
+                <if test = "record.brandCode != null">BRAND_CODE=#{record.brandCode},</if>
+                <if test = "record.resoureCode != null">RESOURE_CODE=#{record.resoureCode},</if>
+                <if test = "record.saleTypeId != null">SALE_TYPE_ID=#{record.saleTypeId},</if>
+                <if test = "record.agentCode != null">AGENT_CODE=#{record.agentCode},</if>
+                <if test = "record.instcode != null">INSTCODE=#{record.instcode},</if>
+                <if test = "record.planDate != null">PLAN_DATE=#{record.planDate},</if>
+                <if test = "record.factPenAmt != null">FACT_PEN_AMT=#{record.factPenAmt},</if>
+                <if test = "record.restPenAmt != null">REST_PEN_AMT=#{record.restPenAmt},</if>
+                <if test = "record.lastRetDate != null">LAST_RET_DATE=#{record.lastRetDate},</if>
+                <if test = "record.penStateId != null">PEN_STATE_ID=#{record.penStateId},</if>
+                <if test = "record.isPayId != null">IS_PAY_ID=#{record.isPayId},</if>
+                <if test = "record.createdBy != null">created_by=#{record.createdBy},</if>
+                <if test = "record.createdDate != null">created_date=#{record.createdDate},</if>
+                <if test = "record.lastModifiedBy != null">last_modified_by=#{record.lastModifiedBy},</if>
+                <if test = "record.lastModifiedDate != null">last_modified_date=#{record.lastModifiedDate},</if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="update" parameterType="com.sinfusi.freedom.rm.entity.RmPenaltytalZl">
+        update rm_penaltytal_zl
+        <set>
+                <if test = "id != null">ID=#{id},</if>
+                <if test = "orderId != null">ORDER_ID=#{orderId},</if>
+                <if test = "custId != null">CUST_ID=#{custId},</if>
+                <if test = "brandCode != null">BRAND_CODE=#{brandCode},</if>
+                <if test = "resoureCode != null">RESOURE_CODE=#{resoureCode},</if>
+                <if test = "saleTypeId != null">SALE_TYPE_ID=#{saleTypeId},</if>
+                <if test = "agentCode != null">AGENT_CODE=#{agentCode},</if>
+                <if test = "instcode != null">INSTCODE=#{instcode},</if>
+                <if test = "planDate != null">PLAN_DATE=#{planDate},</if>
+                <if test = "factPenAmt != null">FACT_PEN_AMT=#{factPenAmt},</if>
+                <if test = "restPenAmt != null">REST_PEN_AMT=#{restPenAmt},</if>
+                <if test = "lastRetDate != null">LAST_RET_DATE=#{lastRetDate},</if>
+                <if test = "penStateId != null">PEN_STATE_ID=#{penStateId},</if>
+                <if test = "isPayId != null">IS_PAY_ID=#{isPayId},</if>
+                <if test = "createdBy != null">created_by=#{createdBy},</if>
+                <if test = "createdDate != null">created_date=#{createdDate},</if>
+                <if test = "lastModifiedBy != null">last_modified_by=#{lastModifiedBy},</if>
+                <if test = "lastModifiedDate != null">last_modified_date=#{lastModifiedDate},</if>
+        </set>
+        where id = #{id}
+    </update>
+    <select id="countByExample" parameterType="com.sinfusi.freedom.rm.example.RmPenaltytalZlExample"
+            resultType="java.lang.Long">
+        select count(*) from rm_penaltytal_zl
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <select id="selectByExample" parameterType="com.sinfusi.freedom.rm.example.RmPenaltytalZlExample"
+            resultMap="BaseResultMap">
+        select
+        <if test="example.distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from rm_penaltytal_zl
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="example.orderByClause != null">
+            order by ${example.orderByClause}
+        </if>
+    </select>
+    <select id="selectById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from rm_penaltytal_zl
+        where id = #{id}
+    </select>
+    <select id="selectByCriteria" parameterType="com.sinfusi.freedom.rm.criteria.RmPenaltytalZlCriteria"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from rm_penaltytal_zl
+        <include refid="Criteria_Where_Clause"/>
+    </select>
+</mapper>

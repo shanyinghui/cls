@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinfusi.freedom.rm.mapper.IRmRentplantabZlMapper">
+    <resultMap id="BaseResultMap" type="com.sinfusi.freedom.rm.entity.RmRentplantabZl">
+        <result property="id" column="ID"/>
+        <result property="contractId" column="CONTRACT_ID"/>
+        <result property="rentSn" column="RENT_SN"/>
+        <result property="orderId" column="ORDER_ID"/>
+        <result property="custId" column="CUST_ID"/>
+        <result property="brandCodeId" column="BRAND_CODE_ID"/>
+        <result property="resoureCodeId" column="RESOURE_CODE_ID"/>
+        <result property="saleTypeId" column="SALE_TYPE_ID"/>
+        <result property="agentCodeId" column="AGENT_CODE_ID"/>
+        <result property="planDate" column="PLAN_DATE"/>
+        <result property="rentAmt" column="RENT_AMT"/>
+        <result property="restRentAmt" column="REST_RENT_AMT"/>
+        <result property="corAmt" column="COR_AMT"/>
+        <result property="restCorAmt" column="REST_COR_AMT"/>
+        <result property="intAmt" column="INT_AMT"/>
+        <result property="restIntAmt" column="REST_INT_AMT"/>
+        <result property="prinblAmt" column="PRINBL_AMT"/>
+        <result property="planPenAmt" column="PLAN_PEN_AMT"/>
+        <result property="factPenAmt" column="FACT_PEN_AMT"/>
+        <result property="redPenAmt" column="RED_PEN_AMT"/>
+        <result property="restPenAmt" column="REST_PEN_AMT"/>
+        <result property="yearRate" column="YEAR_RATE"/>
+        <result property="nperAte" column="NPER_ATE"/>
+        <result property="lvDays" column="LV_DAYS"/>
+        <result property="adjretDate" column="ADJRET_DATE"/>
+        <result property="adjCalDays" column="ADJ_CAL_DAYS"/>
+        <result property="rentStateId" column="RENT_STATE_ID"/>
+        <result property="penStateId" column="PEN_STATE_ID"/>
+        <result property="payWayId" column="PAY_WAY_ID"/>
+        <result property="isPayId" column="IS_PAY_ID"/>
+        <result property="statusId" column="STATUS_ID"/>
+        <result property="overDays" column="OVER_DAYS"/>
+        <result property="lastRetDate" column="LAST_RET_DATE"/>
+        <result column="created_by" property="createdBy" />
+        <result column="created_date" property="createdDate" />
+        <result column="last_modified_by" property="lastModifiedBy" />
+        <result column="last_modified_date" property="lastModifiedDate" />
+    </resultMap>
+    <sql id="Criteria_Where_Clause">
+        <where>
+            <if test="criteria != null">
+                <if test="criteria.id != null">
+                    <if test="criteria.id.equals != null">
+                        and ID =#{criteria.id.equals}
+                    </if>
+                </if>
+                <if test="criteria.contractId != null">
+                    <if test="criteria.contractId.equals != null">
+                        and CONTRACT_ID =#{criteria.contractId.equals}
+                    </if>
+                </if>
+                <if test="criteria.rentSn != null">
+                    <if test="criteria.rentSn.equals != null">
+                        and RENT_SN =#{criteria.rentSn.equals}
+                    </if>
+                </if>
+                <if test="criteria.orderId != null">
+                    <if test="criteria.orderId.equals != null">
+                        and ORDER_ID =#{criteria.orderId.equals}
+                    </if>
+                </if>
+                <if test="criteria.custId != null">
+                    <if test="criteria.custId.equals != null">
+                        and CUST_ID =#{criteria.custId.equals}
+                    </if>
+                </if>
+                <if test="criteria.brandCodeId != null">
+                    <if test="criteria.brandCodeId.equals != null">
+                        and BRAND_CODE_ID =#{criteria.brandCodeId.equals}
+                    </if>
+                </if>
+                <if test="criteria.resoureCodeId != null">
+                    <if test="criteria.resoureCodeId.equals != null">
+                        and RESOURE_CODE_ID =#{criteria.resoureCodeId.equals}
+                    </if>
+                </if>
+                <if test="criteria.saleTypeId != null">
+                    <if test="criteria.saleTypeId.equals != null">
+                        and SALE_TYPE_ID =#{criteria.saleTypeId.equals}
+                    </if>
+                </if>
+                <if test="criteria.agentCodeId != null">
+                    <if test="criteria.agentCodeId.equals != null">
+                        and AGENT_CODE_ID =#{criteria.agentCodeId.equals}
+                    </if>
+                </if>
+                <if test="criteria.planDate != null">
+                    <if test="criteria.planDate.equals != null">
+                        and PLAN_DATE =#{criteria.planDate.equals}
+                    </if>
+                </if>
+                <if test="criteria.rentAmt != null">
+                    <if test="criteria.rentAmt.equals != null">
+                        and RENT_AMT =#{criteria.rentAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.restRentAmt != null">
+                    <if test="criteria.restRentAmt.equals != null">
+                        and REST_RENT_AMT =#{criteria.restRentAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.corAmt != null">
+                    <if test="criteria.corAmt.equals != null">
+                        and COR_AMT =#{criteria.corAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.restCorAmt != null">
+                    <if test="criteria.restCorAmt.equals != null">
+                        and REST_COR_AMT =#{criteria.restCorAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.intAmt != null">
+                    <if test="criteria.intAmt.equals != null">
+                        and INT_AMT =#{criteria.intAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.restIntAmt != null">
+                    <if test="criteria.restIntAmt.equals != null">
+                        and REST_INT_AMT =#{criteria.restIntAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.prinblAmt != null">
+                    <if test="criteria.prinblAmt.equals != null">
+                        and PRINBL_AMT =#{criteria.prinblAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.planPenAmt != null">
+                    <if test="criteria.planPenAmt.equals != null">
+                        and PLAN_PEN_AMT =#{criteria.planPenAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.factPenAmt != null">
+                    <if test="criteria.factPenAmt.equals != null">
+                        and FACT_PEN_AMT =#{criteria.factPenAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.redPenAmt != null">
+                    <if test="criteria.redPenAmt.equals != null">
+                        and RED_PEN_AMT =#{criteria.redPenAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.restPenAmt != null">
+                    <if test="criteria.restPenAmt.equals != null">
+                        and REST_PEN_AMT =#{criteria.restPenAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.yearRate != null">
+                    <if test="criteria.yearRate.equals != null">
+                        and YEAR_RATE =#{criteria.yearRate.equals}
+                    </if>
+                </if>
+                <if test="criteria.nperAte != null">
+                    <if test="criteria.nperAte.equals != null">
+                        and NPER_ATE =#{criteria.nperAte.equals}
+                    </if>
+                </if>
+                <if test="criteria.lvDays != null">
+                    <if test="criteria.lvDays.equals != null">
+                        and LV_DAYS =#{criteria.lvDays.equals}
+                    </if>
+                </if>
+                <if test="criteria.adjretDate != null">
+                    <if test="criteria.adjretDate.equals != null">
+                        and ADJRET_DATE =#{criteria.adjretDate.equals}
+                    </if>
+                </if>
+                <if test="criteria.adjCalDays != null">
+                    <if test="criteria.adjCalDays.equals != null">
+                        and ADJ_CAL_DAYS =#{criteria.adjCalDays.equals}
+                    </if>
+                </if>
+                <if test="criteria.rentStateId != null">
+                    <if test="criteria.rentStateId.equals != null">
+                        and RENT_STATE_ID =#{criteria.rentStateId.equals}
+                    </if>
+                </if>
+                <if test="criteria.penStateId != null">
+                    <if test="criteria.penStateId.equals != null">
+                        and PEN_STATE_ID =#{criteria.penStateId.equals}
+                    </if>
+                </if>
+                <if test="criteria.payWayId != null">
+                    <if test="criteria.payWayId.equals != null">
+                        and PAY_WAY_ID =#{criteria.payWayId.equals}
+                    </if>
+                </if>
+                <if test="criteria.isPayId != null">
+                    <if test="criteria.isPayId.equals != null">
+                        and IS_PAY_ID =#{criteria.isPayId.equals}
+                    </if>
+                </if>
+                <if test="criteria.statusId != null">
+                    <if test="criteria.statusId.equals != null">
+                        and STATUS_ID =#{criteria.statusId.equals}
+                    </if>
+                </if>
+                <if test="criteria.overDays != null">
+                    <if test="criteria.overDays.equals != null">
+                        and OVER_DAYS =#{criteria.overDays.equals}
+                    </if>
+                </if>
+                <if test="criteria.lastRetDate != null">
+                    <if test="criteria.lastRetDate.equals != null">
+                        and LAST_RET_DATE =#{criteria.lastRetDate.equals}
+                    </if>
+                </if>
+                <if test="criteria.createdBy != null">
+                    <if test="criteria.createdBy.equals != null">
+                      and created_by =#{criteria.createdBy.equals}
+                    </if>
+                </if>
+                <if test="criteria.createdDate != null">
+                    <if test="criteria.createdDate.equals != null">
+                      and created_date =#{criteria.createdDate.equals}
+                    </if>
+                </if>
+                <if test="criteria.lastModifiedBy != null">
+                    <if test="criteria.lastModifiedBy.equals != null">
+                      and last_modified_by =#{criteria.lastModifiedBy.equals}
+                    </if>
+                </if>
+                <if test="criteria.lastModifiedDate != null">
+                    <if test="criteria.lastModifiedDate.equals != null">
+                      and last_modified_date =#{criteria.lastModifiedDate.equals}
+                    </if>
+                </if>
+            </if>
+        </where>
+    </sql>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        ID,
+        CONTRACT_ID,
+        RENT_SN,
+        ORDER_ID,
+        CUST_ID,
+        BRAND_CODE_ID,
+        RESOURE_CODE_ID,
+        SALE_TYPE_ID,
+        AGENT_CODE_ID,
+        PLAN_DATE,
+        RENT_AMT,
+        REST_RENT_AMT,
+        COR_AMT,
+        REST_COR_AMT,
+        INT_AMT,
+        REST_INT_AMT,
+        PRINBL_AMT,
+        PLAN_PEN_AMT,
+        FACT_PEN_AMT,
+        RED_PEN_AMT,
+        REST_PEN_AMT,
+        YEAR_RATE,
+        NPER_ATE,
+        LV_DAYS,
+        ADJRET_DATE,
+        ADJ_CAL_DAYS,
+        RENT_STATE_ID,
+        PEN_STATE_ID,
+        PAY_WAY_ID,
+        IS_PAY_ID,
+        STATUS_ID,
+        OVER_DAYS,
+        LAST_RET_DATE,
+        created_by,
+        created_date,
+        last_modified_by,
+        last_modified_date
+    </sql>
+    <delete id="deleteById" >
+        delete from rm_rentplantab_zl where id = #{id}
+    </delete>
+    <insert id="insert" parameterType="com.sinfusi.freedom.rm.entity.RmRentplantabZl">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+            SELECT UUID()
+        </selectKey>
+        insert into rm_rentplantab_zl
+        (
+          <include refid="Base_Column_List"></include>
+        )
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                #{id},
+                #{contractId},
+                #{rentSn},
+                #{orderId},
+                #{custId},
+                #{brandCodeId},
+                #{resoureCodeId},
+                #{saleTypeId},
+                #{agentCodeId},
+                #{planDate},
+                #{rentAmt},
+                #{restRentAmt},
+                #{corAmt},
+                #{restCorAmt},
+                #{intAmt},
+                #{restIntAmt},
+                #{prinblAmt},
+                #{planPenAmt},
+                #{factPenAmt},
+                #{redPenAmt},
+                #{restPenAmt},
+                #{yearRate},
+                #{nperAte},
+                #{lvDays},
+                #{adjretDate},
+                #{adjCalDays},
+                #{rentStateId},
+                #{penStateId},
+                #{payWayId},
+                #{isPayId},
+                #{statusId},
+                #{overDays},
+                #{lastRetDate},
+                #{createdBy},
+                #{createdDate},
+                #{lastModifiedBy},
+                #{lastModifiedDate},
+        </trim>
+    </insert>
+    <update id="updateByExample" parameterType="map">
+        update rm_rentplantab_zl
+        <set>
+                <if test = "record.id != null">ID=#{record.id},</if>
+                <if test = "record.contractId != null">CONTRACT_ID=#{record.contractId},</if>
+                <if test = "record.rentSn != null">RENT_SN=#{record.rentSn},</if>
+                <if test = "record.orderId != null">ORDER_ID=#{record.orderId},</if>
+                <if test = "record.custId != null">CUST_ID=#{record.custId},</if>
+                <if test = "record.brandCodeId != null">BRAND_CODE_ID=#{record.brandCodeId},</if>
+                <if test = "record.resoureCodeId != null">RESOURE_CODE_ID=#{record.resoureCodeId},</if>
+                <if test = "record.saleTypeId != null">SALE_TYPE_ID=#{record.saleTypeId},</if>
+                <if test = "record.agentCodeId != null">AGENT_CODE_ID=#{record.agentCodeId},</if>
+                <if test = "record.planDate != null">PLAN_DATE=#{record.planDate},</if>
+                <if test = "record.rentAmt != null">RENT_AMT=#{record.rentAmt},</if>
+                <if test = "record.restRentAmt != null">REST_RENT_AMT=#{record.restRentAmt},</if>
+                <if test = "record.corAmt != null">COR_AMT=#{record.corAmt},</if>
+                <if test = "record.restCorAmt != null">REST_COR_AMT=#{record.restCorAmt},</if>
+                <if test = "record.intAmt != null">INT_AMT=#{record.intAmt},</if>
+                <if test = "record.restIntAmt != null">REST_INT_AMT=#{record.restIntAmt},</if>
+                <if test = "record.prinblAmt != null">PRINBL_AMT=#{record.prinblAmt},</if>
+                <if test = "record.planPenAmt != null">PLAN_PEN_AMT=#{record.planPenAmt},</if>
+                <if test = "record.factPenAmt != null">FACT_PEN_AMT=#{record.factPenAmt},</if>
+                <if test = "record.redPenAmt != null">RED_PEN_AMT=#{record.redPenAmt},</if>
+                <if test = "record.restPenAmt != null">REST_PEN_AMT=#{record.restPenAmt},</if>
+                <if test = "record.yearRate != null">YEAR_RATE=#{record.yearRate},</if>
+                <if test = "record.nperAte != null">NPER_ATE=#{record.nperAte},</if>
+                <if test = "record.lvDays != null">LV_DAYS=#{record.lvDays},</if>
+                <if test = "record.adjretDate != null">ADJRET_DATE=#{record.adjretDate},</if>
+                <if test = "record.adjCalDays != null">ADJ_CAL_DAYS=#{record.adjCalDays},</if>
+                <if test = "record.rentStateId != null">RENT_STATE_ID=#{record.rentStateId},</if>
+                <if test = "record.penStateId != null">PEN_STATE_ID=#{record.penStateId},</if>
+                <if test = "record.payWayId != null">PAY_WAY_ID=#{record.payWayId},</if>
+                <if test = "record.isPayId != null">IS_PAY_ID=#{record.isPayId},</if>
+                <if test = "record.statusId != null">STATUS_ID=#{record.statusId},</if>
+                <if test = "record.overDays != null">OVER_DAYS=#{record.overDays},</if>
+                <if test = "record.lastRetDate != null">LAST_RET_DATE=#{record.lastRetDate},</if>
+                <if test = "record.createdBy != null">created_by=#{record.createdBy},</if>
+                <if test = "record.createdDate != null">created_date=#{record.createdDate},</if>
+                <if test = "record.lastModifiedBy != null">last_modified_by=#{record.lastModifiedBy},</if>
+                <if test = "record.lastModifiedDate != null">last_modified_date=#{record.lastModifiedDate},</if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="update" parameterType="com.sinfusi.freedom.rm.entity.RmRentplantabZl">
+        update rm_rentplantab_zl
+        <set>
+                <if test = "id != null">ID=#{id},</if>
+                <if test = "contractId != null">CONTRACT_ID=#{contractId},</if>
+                <if test = "rentSn != null">RENT_SN=#{rentSn},</if>
+                <if test = "orderId != null">ORDER_ID=#{orderId},</if>
+                <if test = "custId != null">CUST_ID=#{custId},</if>
+                <if test = "brandCodeId != null">BRAND_CODE_ID=#{brandCodeId},</if>
+                <if test = "resoureCodeId != null">RESOURE_CODE_ID=#{resoureCodeId},</if>
+                <if test = "saleTypeId != null">SALE_TYPE_ID=#{saleTypeId},</if>
+                <if test = "agentCodeId != null">AGENT_CODE_ID=#{agentCodeId},</if>
+                <if test = "planDate != null">PLAN_DATE=#{planDate},</if>
+                <if test = "rentAmt != null">RENT_AMT=#{rentAmt},</if>
+                <if test = "restRentAmt != null">REST_RENT_AMT=#{restRentAmt},</if>
+                <if test = "corAmt != null">COR_AMT=#{corAmt},</if>
+                <if test = "restCorAmt != null">REST_COR_AMT=#{restCorAmt},</if>
+                <if test = "intAmt != null">INT_AMT=#{intAmt},</if>
+                <if test = "restIntAmt != null">REST_INT_AMT=#{restIntAmt},</if>
+                <if test = "prinblAmt != null">PRINBL_AMT=#{prinblAmt},</if>
+                <if test = "planPenAmt != null">PLAN_PEN_AMT=#{planPenAmt},</if>
+                <if test = "factPenAmt != null">FACT_PEN_AMT=#{factPenAmt},</if>
+                <if test = "redPenAmt != null">RED_PEN_AMT=#{redPenAmt},</if>
+                <if test = "restPenAmt != null">REST_PEN_AMT=#{restPenAmt},</if>
+                <if test = "yearRate != null">YEAR_RATE=#{yearRate},</if>
+                <if test = "nperAte != null">NPER_ATE=#{nperAte},</if>
+                <if test = "lvDays != null">LV_DAYS=#{lvDays},</if>
+                <if test = "adjretDate != null">ADJRET_DATE=#{adjretDate},</if>
+                <if test = "adjCalDays != null">ADJ_CAL_DAYS=#{adjCalDays},</if>
+                <if test = "rentStateId != null">RENT_STATE_ID=#{rentStateId},</if>
+                <if test = "penStateId != null">PEN_STATE_ID=#{penStateId},</if>
+                <if test = "payWayId != null">PAY_WAY_ID=#{payWayId},</if>
+                <if test = "isPayId != null">IS_PAY_ID=#{isPayId},</if>
+                <if test = "statusId != null">STATUS_ID=#{statusId},</if>
+                <if test = "overDays != null">OVER_DAYS=#{overDays},</if>
+                <if test = "lastRetDate != null">LAST_RET_DATE=#{lastRetDate},</if>
+                <if test = "createdBy != null">created_by=#{createdBy},</if>
+                <if test = "createdDate != null">created_date=#{createdDate},</if>
+                <if test = "lastModifiedBy != null">last_modified_by=#{lastModifiedBy},</if>
+                <if test = "lastModifiedDate != null">last_modified_date=#{lastModifiedDate},</if>
+        </set>
+        where id = #{id}
+    </update>
+    <select id="countByExample" parameterType="com.sinfusi.freedom.rm.example.RmRentplantabZlExample"
+            resultType="java.lang.Long">
+        select count(*) from rm_rentplantab_zl
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <select id="selectByExample" parameterType="com.sinfusi.freedom.rm.example.RmRentplantabZlExample"
+            resultMap="BaseResultMap">
+        select
+        <if test="example.distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from rm_rentplantab_zl
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="example.orderByClause != null">
+            order by ${example.orderByClause}
+        </if>
+    </select>
+    <select id="selectById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from rm_rentplantab_zl
+        where id = #{id}
+    </select>
+    <select id="selectByCriteria" parameterType="com.sinfusi.freedom.rm.criteria.RmRentplantabZlCriteria"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from rm_rentplantab_zl
+        <include refid="Criteria_Where_Clause"/>
+    </select>
+</mapper>

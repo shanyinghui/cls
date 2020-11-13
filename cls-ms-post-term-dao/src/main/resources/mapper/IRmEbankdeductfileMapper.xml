@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinfusi.freedom.rm.mapper.IRmEbankdeductfileMapper">
+    <resultMap id="BaseResultMap" type="com.sinfusi.freedom.rm.entity.RmEbankdeductfile">
+        <result property="id" column="ID"/>
+        <result property="custClassId" column="CUST_CLASS_ID"/>
+        <result property="ebankName" column="EBANK_NAME"/>
+        <result property="makeAmt" column="MAKE_AMT"/>
+        <result property="makeCount" column="MAKE_COUNT"/>
+        <result property="makeFilePath" column="MAKE_FILE_PATH"/>
+        <result property="makeFileName" column="MAKE_FILE_NAME"/>
+        <result property="makeTime" column="MAKE_TIME"/>
+        <result property="maker" column="MAKER"/>
+        <result property="backTime" column="BACK_TIME"/>
+        <result property="uploader" column="UPLOADER"/>
+        <result property="backFilePath" column="BACK_FILE_PATH"/>
+        <result property="backFileName" column="BACK_FILE_NAME"/>
+        <result property="backAmt" column="BACK_AMT"/>
+        <result property="backCount" column="BACK_COUNT"/>
+        <result property="scount" column="SCOUNT"/>
+        <result property="samt" column="SAMT"/>
+        <result property="dataStateId" column="DATA_STATE_ID"/>
+        <result property="stateId" column="STATE_ID"/>
+        <result column="created_by" property="createdBy" />
+        <result column="created_date" property="createdDate" />
+        <result column="last_modified_by" property="lastModifiedBy" />
+        <result column="last_modified_date" property="lastModifiedDate" />
+    </resultMap>
+    <sql id="Criteria_Where_Clause">
+        <where>
+            <if test="criteria != null">
+                <if test="criteria.id != null">
+                    <if test="criteria.id.equals != null">
+                        and ID =#{criteria.id.equals}
+                    </if>
+                </if>
+                <if test="criteria.custClassId != null">
+                    <if test="criteria.custClassId.equals != null">
+                        and CUST_CLASS_ID =#{criteria.custClassId.equals}
+                    </if>
+                </if>
+                <if test="criteria.ebankName != null">
+                    <if test="criteria.ebankName.equals != null">
+                        and EBANK_NAME =#{criteria.ebankName.equals}
+                    </if>
+                </if>
+                <if test="criteria.makeAmt != null">
+                    <if test="criteria.makeAmt.equals != null">
+                        and MAKE_AMT =#{criteria.makeAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.makeCount != null">
+                    <if test="criteria.makeCount.equals != null">
+                        and MAKE_COUNT =#{criteria.makeCount.equals}
+                    </if>
+                </if>
+                <if test="criteria.makeFilePath != null">
+                    <if test="criteria.makeFilePath.equals != null">
+                        and MAKE_FILE_PATH =#{criteria.makeFilePath.equals}
+                    </if>
+                </if>
+                <if test="criteria.makeFileName != null">
+                    <if test="criteria.makeFileName.equals != null">
+                        and MAKE_FILE_NAME =#{criteria.makeFileName.equals}
+                    </if>
+                </if>
+                <if test="criteria.makeTime != null">
+                    <if test="criteria.makeTime.equals != null">
+                        and MAKE_TIME =#{criteria.makeTime.equals}
+                    </if>
+                </if>
+                <if test="criteria.maker != null">
+                    <if test="criteria.maker.equals != null">
+                        and MAKER =#{criteria.maker.equals}
+                    </if>
+                </if>
+                <if test="criteria.backTime != null">
+                    <if test="criteria.backTime.equals != null">
+                        and BACK_TIME =#{criteria.backTime.equals}
+                    </if>
+                </if>
+                <if test="criteria.uploader != null">
+                    <if test="criteria.uploader.equals != null">
+                        and UPLOADER =#{criteria.uploader.equals}
+                    </if>
+                </if>
+                <if test="criteria.backFilePath != null">
+                    <if test="criteria.backFilePath.equals != null">
+                        and BACK_FILE_PATH =#{criteria.backFilePath.equals}
+                    </if>
+                </if>
+                <if test="criteria.backFileName != null">
+                    <if test="criteria.backFileName.equals != null">
+                        and BACK_FILE_NAME =#{criteria.backFileName.equals}
+                    </if>
+                </if>
+                <if test="criteria.backAmt != null">
+                    <if test="criteria.backAmt.equals != null">
+                        and BACK_AMT =#{criteria.backAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.backCount != null">
+                    <if test="criteria.backCount.equals != null">
+                        and BACK_COUNT =#{criteria.backCount.equals}
+                    </if>
+                </if>
+                <if test="criteria.scount != null">
+                    <if test="criteria.scount.equals != null">
+                        and SCOUNT =#{criteria.scount.equals}
+                    </if>
+                </if>
+                <if test="criteria.samt != null">
+                    <if test="criteria.samt.equals != null">
+                        and SAMT =#{criteria.samt.equals}
+                    </if>
+                </if>
+                <if test="criteria.dataStateId != null">
+                    <if test="criteria.dataStateId.equals != null">
+                        and DATA_STATE_ID =#{criteria.dataStateId.equals}
+                    </if>
+                </if>
+                <if test="criteria.stateId != null">
+                    <if test="criteria.stateId.equals != null">
+                        and STATE_ID =#{criteria.stateId.equals}
+                    </if>
+                </if>
+                <if test="criteria.createdBy != null">
+                    <if test="criteria.createdBy.equals != null">
+                      and created_by =#{criteria.createdBy.equals}
+                    </if>
+                </if>
+                <if test="criteria.createdDate != null">
+                    <if test="criteria.createdDate.equals != null">
+                      and created_date =#{criteria.createdDate.equals}
+                    </if>
+                </if>
+                <if test="criteria.lastModifiedBy != null">
+                    <if test="criteria.lastModifiedBy.equals != null">
+                      and last_modified_by =#{criteria.lastModifiedBy.equals}
+                    </if>
+                </if>
+                <if test="criteria.lastModifiedDate != null">
+                    <if test="criteria.lastModifiedDate.equals != null">
+                      and last_modified_date =#{criteria.lastModifiedDate.equals}
+                    </if>
+                </if>
+            </if>
+        </where>
+    </sql>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        ID,
+        CUST_CLASS_ID,
+        EBANK_NAME,
+        MAKE_AMT,
+        MAKE_COUNT,
+        MAKE_FILE_PATH,
+        MAKE_FILE_NAME,
+        MAKE_TIME,
+        MAKER,
+        BACK_TIME,
+        UPLOADER,
+        BACK_FILE_PATH,
+        BACK_FILE_NAME,
+        BACK_AMT,
+        BACK_COUNT,
+        SCOUNT,
+        SAMT,
+        DATA_STATE_ID,
+        STATE_ID,
+        created_by,
+        created_date,
+        last_modified_by,
+        last_modified_date
+    </sql>
+    <delete id="deleteById" >
+        delete from rm_ebankdeductfile where id = #{id}
+    </delete>
+    <insert id="insert" parameterType="com.sinfusi.freedom.rm.entity.RmEbankdeductfile">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+            SELECT UUID()
+        </selectKey>
+        insert into rm_ebankdeductfile
+        (
+          <include refid="Base_Column_List"></include>
+        )
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                #{id},
+                #{custClassId},
+                #{ebankName},
+                #{makeAmt},
+                #{makeCount},
+                #{makeFilePath},
+                #{makeFileName},
+                #{makeTime},
+                #{maker},
+                #{backTime},
+                #{uploader},
+                #{backFilePath},
+                #{backFileName},
+                #{backAmt},
+                #{backCount},
+                #{scount},
+                #{samt},
+                #{dataStateId},
+                #{stateId},
+                #{createdBy},
+                #{createdDate},
+                #{lastModifiedBy},
+                #{lastModifiedDate},
+        </trim>
+    </insert>
+    <update id="updateByExample" parameterType="map">
+        update rm_ebankdeductfile
+        <set>
+                <if test = "record.id != null">ID=#{record.id},</if>
+                <if test = "record.custClassId != null">CUST_CLASS_ID=#{record.custClassId},</if>
+                <if test = "record.ebankName != null">EBANK_NAME=#{record.ebankName},</if>
+                <if test = "record.makeAmt != null">MAKE_AMT=#{record.makeAmt},</if>
+                <if test = "record.makeCount != null">MAKE_COUNT=#{record.makeCount},</if>
+                <if test = "record.makeFilePath != null">MAKE_FILE_PATH=#{record.makeFilePath},</if>
+                <if test = "record.makeFileName != null">MAKE_FILE_NAME=#{record.makeFileName},</if>
+                <if test = "record.makeTime != null">MAKE_TIME=#{record.makeTime},</if>
+                <if test = "record.maker != null">MAKER=#{record.maker},</if>
+                <if test = "record.backTime != null">BACK_TIME=#{record.backTime},</if>
+                <if test = "record.uploader != null">UPLOADER=#{record.uploader},</if>
+                <if test = "record.backFilePath != null">BACK_FILE_PATH=#{record.backFilePath},</if>
+                <if test = "record.backFileName != null">BACK_FILE_NAME=#{record.backFileName},</if>
+                <if test = "record.backAmt != null">BACK_AMT=#{record.backAmt},</if>
+                <if test = "record.backCount != null">BACK_COUNT=#{record.backCount},</if>
+                <if test = "record.scount != null">SCOUNT=#{record.scount},</if>
+                <if test = "record.samt != null">SAMT=#{record.samt},</if>
+                <if test = "record.dataStateId != null">DATA_STATE_ID=#{record.dataStateId},</if>
+                <if test = "record.stateId != null">STATE_ID=#{record.stateId},</if>
+                <if test = "record.createdBy != null">created_by=#{record.createdBy},</if>
+                <if test = "record.createdDate != null">created_date=#{record.createdDate},</if>
+                <if test = "record.lastModifiedBy != null">last_modified_by=#{record.lastModifiedBy},</if>
+                <if test = "record.lastModifiedDate != null">last_modified_date=#{record.lastModifiedDate},</if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="update" parameterType="com.sinfusi.freedom.rm.entity.RmEbankdeductfile">
+        update rm_ebankdeductfile
+        <set>
+                <if test = "id != null">ID=#{id},</if>
+                <if test = "custClassId != null">CUST_CLASS_ID=#{custClassId},</if>
+                <if test = "ebankName != null">EBANK_NAME=#{ebankName},</if>
+                <if test = "makeAmt != null">MAKE_AMT=#{makeAmt},</if>
+                <if test = "makeCount != null">MAKE_COUNT=#{makeCount},</if>
+                <if test = "makeFilePath != null">MAKE_FILE_PATH=#{makeFilePath},</if>
+                <if test = "makeFileName != null">MAKE_FILE_NAME=#{makeFileName},</if>
+                <if test = "makeTime != null">MAKE_TIME=#{makeTime},</if>
+                <if test = "maker != null">MAKER=#{maker},</if>
+                <if test = "backTime != null">BACK_TIME=#{backTime},</if>
+                <if test = "uploader != null">UPLOADER=#{uploader},</if>
+                <if test = "backFilePath != null">BACK_FILE_PATH=#{backFilePath},</if>
+                <if test = "backFileName != null">BACK_FILE_NAME=#{backFileName},</if>
+                <if test = "backAmt != null">BACK_AMT=#{backAmt},</if>
+                <if test = "backCount != null">BACK_COUNT=#{backCount},</if>
+                <if test = "scount != null">SCOUNT=#{scount},</if>
+                <if test = "samt != null">SAMT=#{samt},</if>
+                <if test = "dataStateId != null">DATA_STATE_ID=#{dataStateId},</if>
+                <if test = "stateId != null">STATE_ID=#{stateId},</if>
+                <if test = "createdBy != null">created_by=#{createdBy},</if>
+                <if test = "createdDate != null">created_date=#{createdDate},</if>
+                <if test = "lastModifiedBy != null">last_modified_by=#{lastModifiedBy},</if>
+                <if test = "lastModifiedDate != null">last_modified_date=#{lastModifiedDate},</if>
+        </set>
+        where id = #{id}
+    </update>
+    <select id="countByExample" parameterType="com.sinfusi.freedom.rm.example.RmEbankdeductfileExample"
+            resultType="java.lang.Long">
+        select count(*) from rm_ebankdeductfile
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <select id="selectByExample" parameterType="com.sinfusi.freedom.rm.example.RmEbankdeductfileExample"
+            resultMap="BaseResultMap">
+        select
+        <if test="example.distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from rm_ebankdeductfile
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="example.orderByClause != null">
+            order by ${example.orderByClause}
+        </if>
+    </select>
+    <select id="selectById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from rm_ebankdeductfile
+        where id = #{id}
+    </select>
+    <select id="selectByCriteria" parameterType="com.sinfusi.freedom.rm.criteria.RmEbankdeductfileCriteria"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from rm_ebankdeductfile
+        <include refid="Criteria_Where_Clause"/>
+    </select>
+</mapper>

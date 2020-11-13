@@ -1,0 +1,263 @@
+logging:
+  level:
+    ROOT: DEBUG
+    com.sinfusi.freedom: DEBUG
+    io.github.jhipster: DEBUG
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://admin:${jhipster.registry.password}@10.102.230.7:8761/eureka/
+
+spring:
+  profiles:
+    active: dev
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: false # we use gulp + BrowserSync for livereload
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://localhost:9411
+  jackson:
+    serialization.indent_output: true
+    default-property-inclusion: non_null
+
+  rabbitmq:
+    host: 10.102.230.104
+    port: 5672
+    username: cls-uat
+    password: H^aW$1wL#Y1cB$0z
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.102.100.135:3306/cls?useUnicode=true&characterEncoding=utf8&useSSL=false&&zeroDateTimeBehavior=convertToNull
+    username: cls_uat
+    password: fPhEkxv93!J*dSue
+    druid:
+      # 下面为连接池的补充设置，应用到上面所有数据源中
+      # 初始化大小，最小，最大
+      initialSize: 2
+      minIdle: 2
+      maxActive: 5
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: false
+      testOnBorrow: false
+      testOnReturn: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # 合并多个DruidDataSource的监控数据
+      #        useGlobalDataSourceStat: true
+  multipleDataSources:
+    datasource:
+      names: rb1,rb2,rb3,rb4,rb5,rb6,rb7,rb8
+      #数据源1  工作流数据源
+      rb1:
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        url: jdbc:sqlserver://172.24.17.148:1433;databaseName=JSDATA
+        username: SA
+        password: '#!QAZ2wsx'
+      rb2:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.102.100.135:3306/report_uat?useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: report_uat
+        password: Nw*aA%GCRQNT0Xu2
+      rb3:
+        driver-class-name: com.mysql.jdbc.Driver
+        # url: jdbc:mysql://10.102.230.8:3306/uat_report?useUnicode=true&characterEncoding=utf8&useSSL=false
+        # username: root
+        # password: Mysql@123
+        url: jdbc:mysql://10.102.100.135:3306/report_uat?useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: report_uat
+        password: Nw*aA%GCRQNT0Xu2
+      rb4:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.102.100.132:3306/custom_dev?useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: custom_dev
+        password: BWa5bf3mtflNfMqS
+      rb5:
+        driver-class-name: oracle.jdbc.driver.OracleDriver
+        url: jdbc:oracle:thin:@10.102.11.36:1521:orcl
+        username: zxccs
+        password: zxccs
+      rb6:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.102.240.7:3306/bpm_01?useUnicode=true&characterEncoding=utf8&useSSL=false  # dev-dev
+        #        url: jdbc:mysql://10.102.230.15:3306/copy_prd_bpm_01?useUnicode=true&characterEncoding=utf8&useSSL=false   # uat-copy_prd
+        #        url: jdbc:mysql://10.102.230.15:3306/bpm_01?useUnicode=true&characterEncoding=utf8&useSSL=false  # uat-uat
+        username: root
+        password: Mysql@123
+      rb7:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.102.100.135:3306/cls?useUnicode=true&characterEncoding=utf8&useSSL=false  # dev-dev
+        username: cls_uat
+        password: fPhEkxv93!J*dSue
+      rb8:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.102.100.135:3306/cls?useUnicode=true&characterEncoding=utf8&useSSL=false  # dev-dev
+        username: cls_uat
+        password: fPhEkxv93!J*dSue
+
+#  mail:
+#    host: 10.102.230.7
+#    port: 25
+#    username:
+#    password:
+  messages:
+    cache-duration: 1
+
+  thymeleaf:
+    cache: false
+
+  redis:
+    host: 10.102.230.105
+    database: 0
+    password: '*4OzapN!S5EvBZy4'
+    port: 6379
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 60MB
+      max-request-size: 60MB
+
+  main:
+    lazy-initialization: false
+
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:/config/ehcache.xml
+
+#mybatis:
+#  lazy-initialization: true
+
+logstash:
+  enabled: false
+  host: localhost
+  port: 9600
+  queue-size: 512
+
+oauth2:
+  signature-verification:
+    public-key-endpoint-uri: http://lambda-uaa/oauth/token_key
+    #ttl for public keys to verify JWT tokens (in ms)
+    ttl: 3600000
+    #max. rate at which public keys will be fetched (in ms)
+    public-key-refresh-rate-limit: 10000
+  web-client-configuration:
+    #keep in sync with UAA configuration
+    client-id: web_app
+    secret: changeit
+    # Controls session expiration due to inactivity (ignored for remember-me).
+    # Negative values disable session inactivity expiration.
+    session-timeout-in-seconds: 1800
+  client-authorization:
+    access-token-uri: http://lambda-uaa/oauth/token
+    token-service-id: lambda-uaa
+    client-id: internal
+    client-secret: internal
+
+#内部服务 外部接口调用
+instance:
+  #   产品bom
+  fps:
+    ServiceAppName: lambda-controller
+    ServiceHost: https://uat-fps.ca-sinfusi.com/
+    ControllerAppName: fps-controller
+    ControllerHost: https://uat-fps.ca-sinfusi.com/
+  #   风控接口请求地址
+  Crds:
+    ControllerAppName: crds-controller
+    ControllerHost: https://uat-gateway-amp.ca-sinfusi.com/crds-controller?x-amp-appid=7dda164fe6c70b2dc76e4d8f4ee636f2&x-amp-appkey=0eb48142d19b4c21a9f1505b3d9904c7
+  clsLedger:
+    ControllerAppName: cls-ledger-ms
+    ControllerHost: http://localhost:31006
+
+SMS:
+  audioUrl: https://uat-amp.ca-sinfusi.com/gateway/sms-sender-controller/interface/message/sendAudioSmsMessage
+  smsUrl: https://uat-amp.ca-sinfusi.com/gateway/sms-sender-controller/interface/message/sendSmsMessage
+  appId: 375b2c1be38f6a3ea503f1b893a50ec5
+  appKey: 9beb87e43ca9a3fc42ee3b0d9efc0b96
+
+
+zuul:
+  routes:
+    cls-ledger-ms:
+      path: /cls-ledger-ms/**
+      url: http://localhost:31006
+
+#### rabbitMq 消息队列配置 _start
+rabbitmq:
+  env: dev.
+  queue:
+    sms: ${rabbitmq.env}Sinfusi.RabbitMqList.queue
+    exportLedger: ${rabbitmq.env}Sinfusi.RabbitMqList.exportLedger
+    rmContamtsumZl: ${rabbitmq.env}Sinfusi.RabbitMqList.rmContamtsumZl
+    rpOrderInfo: ${rabbitmq.env}Sinfusi.RabbitMqList.rpOrderInfo
+    queue: ${rabbitmq.env}Sinfusi.RabbitMqList.queue
+    XCFH: ${rabbitmq.env}Sinfusi.RabbitMqList.XCFH
+    omOrderFactor: ${rabbitmq.env}Sinfusi.RabbitMqList.omOrderFactor
+    exportFile: ${rabbitmq.env}Sinfusi.RabbitMqList.exportFile
+    rentChecked: ${rabbitmq.env}Sinfusi.RabbitMqList.rentChecked
+    excuteRpFixedGuarantee: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteRpFixedGuarantee
+    excuteOrderFinance: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteOrderFinance
+    excuteRpBondDetail: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteRpBondDetail
+    excuteRpFiveLevel: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteRpFiveLevel
+    excuteRpRengplantabLedger: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteRpRengplantabLedger
+    excuteRpOrderCarbase: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteRpOrderCarbase
+    excuteRpOrderSidecar: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteRpOrderSidecar
+    excuteRpSettleLedger: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteRpSettleLedger
+    excuteRpRepayCardInfo: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteRpRepayCardInfo
+    excuteVoucherSap: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteVoucherSap
+    excuteRpCarWarrantInfoLedger: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteRpCarWarrantInfoLedger
+    excuteInvoiceGenerate: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteInvoiceGenerate
+    excuteGainInvoice: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteGainInvoice
+    excuteRmEBankDeductGenerate: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteRmEBankDeductGenerate
+    addMdmCustomer: ${rabbitmq.env}Sinfusi.RabbitMqList.addMdmCustomer
+    excuteAutoDeductionPush: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteAutoDeductionPush
+    excuteOnLineRepaymentPush: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteOnLineRepaymentPush
+    excuteEndContractRemindPush: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteEndContractRemindPush
+    excuteUpdateAgentName: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteUpdateAgentName
+    excuteEbankHire: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteEbankHire
+    directOnlineLending: ${rabbitmq.env}Sinfusi.RabbitMqList.directOnlineLending
+    refundOnlineLending: ${rabbitmq.env}Sinfusi.RabbitMqList.refundOnlineLending
+    excuteFmpArchivesToCls: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteFmpArchivesToCls
+    excuteBpmTaskOffline: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteBpmTaskOffline
+    excuteBankpriseAutoDealRent: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteBankpriseAutoDealRent
+    zcInterfaceMQ: ${rabbitmq.env}Sinfusi.RabbitMqList.zcInterfaceMQ
+    commOperationLog: ${rabbitmq.env}Sinfusi.RabbitMqList.commOperationLog
+    excuteGenreateOver: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteGenreateOver
+    excuteOnLineCreditPush: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteOnLineCreditPush
+    antifraud: ${rabbitmq.env}Sinfusi.RabbitMqList.antifraud
+    updateOrderStatus: ${rabbitmq.env}Sinfusi.RabbitMqList.updateOrderStatus
+    dqBasicInformation: ${rabbitmq.env}Sinfusi.RabbitMqList.PreLoan
+    dqHistoricalInformation: ${rabbitmq.env}Sinfusi.RabbitMqList.PreLoan
+    dzCustPortraitInfo: ${rabbitmq.env}Sinfusi.RabbitMqList.InLoan
+    vinCodeBatchUpdate: ${rabbitmq.env}Sinfusi.RabbitMqList.AfterLoan
+    carStatesUpdate: ${rabbitmq.env}Sinfusi.RabbitMqList.AfterLoan
+    alarmAndWarning: ${rabbitmq.env}Sinfusi.RabbitMqList.AfterLoan
+    OmGrantOcrDeal: ${rabbitmq.env}Sinfusi.RabbitMqList.OmGrantOcrDeal
+    excuteQueryInfo: ${rabbitmq.env}Sinfusi.RabbitMqList.excuteQueryInfo
+    revokeNode: ${rabbitmq.env}Sinfusi.RabbitMqList.revokeNode
+    genDataFile: ${rabbitmq.env}Sinfusi.RabbitMqList.genDataFile
+    omFright: ${rabbitmq.env}Sinfusi.RabbitMqList.omFright
+    testMq: ${rabbitmq.env}Sinfusi.RabbitMqList.testMq
+

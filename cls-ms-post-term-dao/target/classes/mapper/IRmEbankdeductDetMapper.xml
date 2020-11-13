@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinfusi.freedom.rm.mapper.IRmEbankdeductDetMapper">
+    <resultMap id="BaseResultMap" type="com.sinfusi.freedom.rm.entity.RmEbankdeductDet">
+        <result property="id" column="ID"/>
+        <result property="waterId" column="WATER_ID"/>
+        <result property="relId" column="REL_ID"/>
+        <result property="retamtTypeId" column="RETAMT_TYPE_ID"/>
+        <result property="payNo" column="PAY_NO"/>
+        <result property="dealNo" column="DEAL_NO"/>
+        <result property="currency" column="CURRENCY"/>
+        <result property="province" column="PROVINCE"/>
+        <result property="areaName" column="AREA_NAME"/>
+        <result property="areaCode" column="AREA_CODE"/>
+        <result property="recBank" column="REC_BANK"/>
+        <result property="recAcct" column="REC_ACCT"/>
+        <result property="recUnit" column="REC_UNIT"/>
+        <result property="payBank" column="PAY_BANK"/>
+        <result property="payAcct" column="PAY_ACCT"/>
+        <result property="payName" column="PAY_NAME"/>
+        <result property="payBankNo" column="PAY_BANK_NO"/>
+        <result property="icbcId" column="ICBC_ID"/>
+        <result property="payAmt" column="PAY_AMT"/>
+        <result property="factAmt" column="FACT_AMT"/>
+        <result property="useType" column="USE_TYPE"/>
+        <result property="proxyWaterId" column="PROXY_WATER_ID"/>
+        <result property="commid" column="COMMID"/>
+        <result property="respCodeId" column="RESP_CODE_ID"/>
+        <result property="respResult" column="RESP_RESULT"/>
+        <result property="telNumber" column="TEL_NUMBER"/>
+        <result property="isSendMessId" column="IS_SEND_MESS_ID"/>
+        <result property="hireStateId" column="HIRE_STATE_ID"/>
+        <result property="jycRelid" column="JYC_RELID"/>
+        <result property="payChannelId" column="PAY_CHANNEL_ID"/>
+        <result property="halfDeductTimes" column="HALF_DEDUCT_TIMES"/>
+        <result property="remark" column="REMARK"/>
+        <result property="stateId" column="STATE_ID"/>
+        <result column="created_by" property="createdBy" />
+        <result column="created_date" property="createdDate" />
+        <result column="last_modified_by" property="lastModifiedBy" />
+        <result column="last_modified_date" property="lastModifiedDate" />
+    </resultMap>
+    <sql id="Criteria_Where_Clause">
+        <where>
+            <if test="criteria != null">
+                <if test="criteria.id != null">
+                    <if test="criteria.id.equals != null">
+                        and ID =#{criteria.id.equals}
+                    </if>
+                </if>
+                <if test="criteria.waterId != null">
+                    <if test="criteria.waterId.equals != null">
+                        and WATER_ID =#{criteria.waterId.equals}
+                    </if>
+                </if>
+                <if test="criteria.relId != null">
+                    <if test="criteria.relId.equals != null">
+                        and REL_ID =#{criteria.relId.equals}
+                    </if>
+                </if>
+                <if test="criteria.retamtTypeId != null">
+                    <if test="criteria.retamtTypeId.equals != null">
+                        and RETAMT_TYPE_ID =#{criteria.retamtTypeId.equals}
+                    </if>
+                </if>
+                <if test="criteria.payNo != null">
+                    <if test="criteria.payNo.equals != null">
+                        and PAY_NO =#{criteria.payNo.equals}
+                    </if>
+                </if>
+                <if test="criteria.dealNo != null">
+                    <if test="criteria.dealNo.equals != null">
+                        and DEAL_NO =#{criteria.dealNo.equals}
+                    </if>
+                </if>
+                <if test="criteria.currency != null">
+                    <if test="criteria.currency.equals != null">
+                        and CURRENCY =#{criteria.currency.equals}
+                    </if>
+                </if>
+                <if test="criteria.province != null">
+                    <if test="criteria.province.equals != null">
+                        and PROVINCE =#{criteria.province.equals}
+                    </if>
+                </if>
+                <if test="criteria.areaName != null">
+                    <if test="criteria.areaName.equals != null">
+                        and AREA_NAME =#{criteria.areaName.equals}
+                    </if>
+                </if>
+                <if test="criteria.areaCode != null">
+                    <if test="criteria.areaCode.equals != null">
+                        and AREA_CODE =#{criteria.areaCode.equals}
+                    </if>
+                </if>
+                <if test="criteria.recBank != null">
+                    <if test="criteria.recBank.equals != null">
+                        and REC_BANK =#{criteria.recBank.equals}
+                    </if>
+                </if>
+                <if test="criteria.recAcct != null">
+                    <if test="criteria.recAcct.equals != null">
+                        and REC_ACCT =#{criteria.recAcct.equals}
+                    </if>
+                </if>
+                <if test="criteria.recUnit != null">
+                    <if test="criteria.recUnit.equals != null">
+                        and REC_UNIT =#{criteria.recUnit.equals}
+                    </if>
+                </if>
+                <if test="criteria.payBank != null">
+                    <if test="criteria.payBank.equals != null">
+                        and PAY_BANK =#{criteria.payBank.equals}
+                    </if>
+                </if>
+                <if test="criteria.payAcct != null">
+                    <if test="criteria.payAcct.equals != null">
+                        and PAY_ACCT =#{criteria.payAcct.equals}
+                    </if>
+                </if>
+                <if test="criteria.payName != null">
+                    <if test="criteria.payName.equals != null">
+                        and PAY_NAME =#{criteria.payName.equals}
+                    </if>
+                </if>
+                <if test="criteria.payBankNo != null">
+                    <if test="criteria.payBankNo.equals != null">
+                        and PAY_BANK_NO =#{criteria.payBankNo.equals}
+                    </if>
+                </if>
+                <if test="criteria.icbcId != null">
+                    <if test="criteria.icbcId.equals != null">
+                        and ICBC_ID =#{criteria.icbcId.equals}
+                    </if>
+                </if>
+                <if test="criteria.payAmt != null">
+                    <if test="criteria.payAmt.equals != null">
+                        and PAY_AMT =#{criteria.payAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.factAmt != null">
+                    <if test="criteria.factAmt.equals != null">
+                        and FACT_AMT =#{criteria.factAmt.equals}
+                    </if>
+                </if>
+                <if test="criteria.useType != null">
+                    <if test="criteria.useType.equals != null">
+                        and USE_TYPE =#{criteria.useType.equals}
+                    </if>
+                </if>
+                <if test="criteria.proxyWaterId != null">
+                    <if test="criteria.proxyWaterId.equals != null">
+                        and PROXY_WATER_ID =#{criteria.proxyWaterId.equals}
+                    </if>
+                </if>
+                <if test="criteria.commid != null">
+                    <if test="criteria.commid.equals != null">
+                        and COMMID =#{criteria.commid.equals}
+                    </if>
+                </if>
+                <if test="criteria.respCodeId != null">
+                    <if test="criteria.respCodeId.equals != null">
+                        and RESP_CODE_ID =#{criteria.respCodeId.equals}
+                    </if>
+                </if>
+                <if test="criteria.respResult != null">
+                    <if test="criteria.respResult.equals != null">
+                        and RESP_RESULT =#{criteria.respResult.equals}
+                    </if>
+                </if>
+                <if test="criteria.telNumber != null">
+                    <if test="criteria.telNumber.equals != null">
+                        and TEL_NUMBER =#{criteria.telNumber.equals}
+                    </if>
+                </if>
+                <if test="criteria.isSendMessId != null">
+                    <if test="criteria.isSendMessId.equals != null">
+                        and IS_SEND_MESS_ID =#{criteria.isSendMessId.equals}
+                    </if>
+                </if>
+                <if test="criteria.hireStateId != null">
+                    <if test="criteria.hireStateId.equals != null">
+                        and HIRE_STATE_ID =#{criteria.hireStateId.equals}
+                    </if>
+                </if>
+                <if test="criteria.jycRelid != null">
+                    <if test="criteria.jycRelid.equals != null">
+                        and JYC_RELID =#{criteria.jycRelid.equals}
+                    </if>
+                </if>
+                <if test="criteria.payChannelId != null">
+                    <if test="criteria.payChannelId.equals != null">
+                        and PAY_CHANNEL_ID =#{criteria.payChannelId.equals}
+                    </if>
+                </if>
+                <if test="criteria.halfDeductTimes != null">
+                    <if test="criteria.halfDeductTimes.equals != null">
+                        and HALF_DEDUCT_TIMES =#{criteria.halfDeductTimes.equals}
+                    </if>
+                </if>
+                <if test="criteria.remark != null">
+                    <if test="criteria.remark.equals != null">
+                        and REMARK =#{criteria.remark.equals}
+                    </if>
+                </if>
+                <if test="criteria.stateId != null">
+                    <if test="criteria.stateId.equals != null">
+                        and STATE_ID =#{criteria.stateId.equals}
+                    </if>
+                </if>
+                <if test="criteria.createdBy != null">
+                    <if test="criteria.createdBy.equals != null">
+                      and created_by =#{criteria.createdBy.equals}
+                    </if>
+                </if>
+                <if test="criteria.createdDate != null">
+                    <if test="criteria.createdDate.equals != null">
+                      and created_date =#{criteria.createdDate.equals}
+                    </if>
+                </if>
+                <if test="criteria.lastModifiedBy != null">
+                    <if test="criteria.lastModifiedBy.equals != null">
+                      and last_modified_by =#{criteria.lastModifiedBy.equals}
+                    </if>
+                </if>
+                <if test="criteria.lastModifiedDate != null">
+                    <if test="criteria.lastModifiedDate.equals != null">
+                      and last_modified_date =#{criteria.lastModifiedDate.equals}
+                    </if>
+                </if>
+            </if>
+        </where>
+    </sql>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        ID,
+        WATER_ID,
+        REL_ID,
+        RETAMT_TYPE_ID,
+        PAY_NO,
+        DEAL_NO,
+        CURRENCY,
+        PROVINCE,
+        AREA_NAME,
+        AREA_CODE,
+        REC_BANK,
+        REC_ACCT,
+        REC_UNIT,
+        PAY_BANK,
+        PAY_ACCT,
+        PAY_NAME,
+        PAY_BANK_NO,
+        ICBC_ID,
+        PAY_AMT,
+        FACT_AMT,
+        USE_TYPE,
+        PROXY_WATER_ID,
+        COMMID,
+        RESP_CODE_ID,
+        RESP_RESULT,
+        TEL_NUMBER,
+        IS_SEND_MESS_ID,
+        HIRE_STATE_ID,
+        JYC_RELID,
+        PAY_CHANNEL_ID,
+        HALF_DEDUCT_TIMES,
+        REMARK,
+        STATE_ID,
+        created_by,
+        created_date,
+        last_modified_by,
+        last_modified_date
+    </sql>
+    <delete id="deleteById" >
+        delete from rm_ebankdeduct_det where id = #{id}
+    </delete>
+    <insert id="insert" parameterType="com.sinfusi.freedom.rm.entity.RmEbankdeductDet">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+            SELECT UUID()
+        </selectKey>
+        insert into rm_ebankdeduct_det
+        (
+          <include refid="Base_Column_List"></include>
+        )
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                #{id},
+                #{waterId},
+                #{relId},
+                #{retamtTypeId},
+                #{payNo},
+                #{dealNo},
+                #{currency},
+                #{province},
+                #{areaName},
+                #{areaCode},
+                #{recBank},
+                #{recAcct},
+                #{recUnit},
+                #{payBank},
+                #{payAcct},
+                #{payName},
+                #{payBankNo},
+                #{icbcId},
+                #{payAmt},
+                #{factAmt},
+                #{useType},
+                #{proxyWaterId},
+                #{commid},
+                #{respCodeId},
+                #{respResult},
+                #{telNumber},
+                #{isSendMessId},
+                #{hireStateId},
+                #{jycRelid},
+                #{payChannelId},
+                #{halfDeductTimes},
+                #{remark},
+                #{stateId},
+                #{createdBy},
+                #{createdDate},
+                #{lastModifiedBy},
+                #{lastModifiedDate},
+        </trim>
+    </insert>
+    <update id="updateByExample" parameterType="map">
+        update rm_ebankdeduct_det
+        <set>
+                <if test = "record.id != null">ID=#{record.id},</if>
+                <if test = "record.waterId != null">WATER_ID=#{record.waterId},</if>
+                <if test = "record.relId != null">REL_ID=#{record.relId},</if>
+                <if test = "record.retamtTypeId != null">RETAMT_TYPE_ID=#{record.retamtTypeId},</if>
+                <if test = "record.payNo != null">PAY_NO=#{record.payNo},</if>
+                <if test = "record.dealNo != null">DEAL_NO=#{record.dealNo},</if>
+                <if test = "record.currency != null">CURRENCY=#{record.currency},</if>
+                <if test = "record.province != null">PROVINCE=#{record.province},</if>
+                <if test = "record.areaName != null">AREA_NAME=#{record.areaName},</if>
+                <if test = "record.areaCode != null">AREA_CODE=#{record.areaCode},</if>
+                <if test = "record.recBank != null">REC_BANK=#{record.recBank},</if>
+                <if test = "record.recAcct != null">REC_ACCT=#{record.recAcct},</if>
+                <if test = "record.recUnit != null">REC_UNIT=#{record.recUnit},</if>
+                <if test = "record.payBank != null">PAY_BANK=#{record.payBank},</if>
+                <if test = "record.payAcct != null">PAY_ACCT=#{record.payAcct},</if>
+                <if test = "record.payName != null">PAY_NAME=#{record.payName},</if>
+                <if test = "record.payBankNo != null">PAY_BANK_NO=#{record.payBankNo},</if>
+                <if test = "record.icbcId != null">ICBC_ID=#{record.icbcId},</if>
+                <if test = "record.payAmt != null">PAY_AMT=#{record.payAmt},</if>
+                <if test = "record.factAmt != null">FACT_AMT=#{record.factAmt},</if>
+                <if test = "record.useType != null">USE_TYPE=#{record.useType},</if>
+                <if test = "record.proxyWaterId != null">PROXY_WATER_ID=#{record.proxyWaterId},</if>
+                <if test = "record.commid != null">COMMID=#{record.commid},</if>
+                <if test = "record.respCodeId != null">RESP_CODE_ID=#{record.respCodeId},</if>
+                <if test = "record.respResult != null">RESP_RESULT=#{record.respResult},</if>
+                <if test = "record.telNumber != null">TEL_NUMBER=#{record.telNumber},</if>
+                <if test = "record.isSendMessId != null">IS_SEND_MESS_ID=#{record.isSendMessId},</if>
+                <if test = "record.hireStateId != null">HIRE_STATE_ID=#{record.hireStateId},</if>
+                <if test = "record.jycRelid != null">JYC_RELID=#{record.jycRelid},</if>
+                <if test = "record.payChannelId != null">PAY_CHANNEL_ID=#{record.payChannelId},</if>
+                <if test = "record.halfDeductTimes != null">HALF_DEDUCT_TIMES=#{record.halfDeductTimes},</if>
+                <if test = "record.remark != null">REMARK=#{record.remark},</if>
+                <if test = "record.stateId != null">STATE_ID=#{record.stateId},</if>
+                <if test = "record.createdBy != null">created_by=#{record.createdBy},</if>
+                <if test = "record.createdDate != null">created_date=#{record.createdDate},</if>
+                <if test = "record.lastModifiedBy != null">last_modified_by=#{record.lastModifiedBy},</if>
+                <if test = "record.lastModifiedDate != null">last_modified_date=#{record.lastModifiedDate},</if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="update" parameterType="com.sinfusi.freedom.rm.entity.RmEbankdeductDet">
+        update rm_ebankdeduct_det
+        <set>
+                <if test = "id != null">ID=#{id},</if>
+                <if test = "waterId != null">WATER_ID=#{waterId},</if>
+                <if test = "relId != null">REL_ID=#{relId},</if>
+                <if test = "retamtTypeId != null">RETAMT_TYPE_ID=#{retamtTypeId},</if>
+                <if test = "payNo != null">PAY_NO=#{payNo},</if>
+                <if test = "dealNo != null">DEAL_NO=#{dealNo},</if>
+                <if test = "currency != null">CURRENCY=#{currency},</if>
+                <if test = "province != null">PROVINCE=#{province},</if>
+                <if test = "areaName != null">AREA_NAME=#{areaName},</if>
+                <if test = "areaCode != null">AREA_CODE=#{areaCode},</if>
+                <if test = "recBank != null">REC_BANK=#{recBank},</if>
+                <if test = "recAcct != null">REC_ACCT=#{recAcct},</if>
+                <if test = "recUnit != null">REC_UNIT=#{recUnit},</if>
+                <if test = "payBank != null">PAY_BANK=#{payBank},</if>
+                <if test = "payAcct != null">PAY_ACCT=#{payAcct},</if>
+                <if test = "payName != null">PAY_NAME=#{payName},</if>
+                <if test = "payBankNo != null">PAY_BANK_NO=#{payBankNo},</if>
+                <if test = "icbcId != null">ICBC_ID=#{icbcId},</if>
+                <if test = "payAmt != null">PAY_AMT=#{payAmt},</if>
+                <if test = "factAmt != null">FACT_AMT=#{factAmt},</if>
+                <if test = "useType != null">USE_TYPE=#{useType},</if>
+                <if test = "proxyWaterId != null">PROXY_WATER_ID=#{proxyWaterId},</if>
+                <if test = "commid != null">COMMID=#{commid},</if>
+                <if test = "respCodeId != null">RESP_CODE_ID=#{respCodeId},</if>
+                <if test = "respResult != null">RESP_RESULT=#{respResult},</if>
+                <if test = "telNumber != null">TEL_NUMBER=#{telNumber},</if>
+                <if test = "isSendMessId != null">IS_SEND_MESS_ID=#{isSendMessId},</if>
+                <if test = "hireStateId != null">HIRE_STATE_ID=#{hireStateId},</if>
+                <if test = "jycRelid != null">JYC_RELID=#{jycRelid},</if>
+                <if test = "payChannelId != null">PAY_CHANNEL_ID=#{payChannelId},</if>
+                <if test = "halfDeductTimes != null">HALF_DEDUCT_TIMES=#{halfDeductTimes},</if>
+                <if test = "remark != null">REMARK=#{remark},</if>
+                <if test = "stateId != null">STATE_ID=#{stateId},</if>
+                <if test = "createdBy != null">created_by=#{createdBy},</if>
+                <if test = "createdDate != null">created_date=#{createdDate},</if>
+                <if test = "lastModifiedBy != null">last_modified_by=#{lastModifiedBy},</if>
+                <if test = "lastModifiedDate != null">last_modified_date=#{lastModifiedDate},</if>
+        </set>
+        where id = #{id}
+    </update>
+    <select id="countByExample" parameterType="com.sinfusi.freedom.rm.example.RmEbankdeductDetExample"
+            resultType="java.lang.Long">
+        select count(*) from rm_ebankdeduct_det
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <select id="selectByExample" parameterType="com.sinfusi.freedom.rm.example.RmEbankdeductDetExample"
+            resultMap="BaseResultMap">
+        select
+        <if test="example.distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from rm_ebankdeduct_det
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="example.orderByClause != null">
+            order by ${example.orderByClause}
+        </if>
+    </select>
+    <select id="selectById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from rm_ebankdeduct_det
+        where id = #{id}
+    </select>
+    <select id="selectByCriteria" parameterType="com.sinfusi.freedom.rm.criteria.RmEbankdeductDetCriteria"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from rm_ebankdeduct_det
+        <include refid="Criteria_Where_Clause"/>
+    </select>
+</mapper>

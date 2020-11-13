@@ -1,0 +1,87 @@
+eureka:
+  # Eureka Client客户端特性配置
+  client:
+    # 是否启用Eureka client。
+    enabled: true
+    healthcheck:
+      enabled: true
+    # 是否拉取注册信息
+    fetch-registry: true
+    # 是否注册到Eureka Server。
+    register-with-eureka: true
+    # 定时将实例信息（如果变化了）复制到Eureka Server的间隔时间。（InstanceInfoReplicator线程）
+    instance-info-replication-interval-seconds: 10
+    # 定时从Eureka Server拉取服务注册信息的间隔时间
+    registry-fetch-interval-seconds: 5
+  # 当前Eureka Instance实例信息配置
+  instance:
+    # 应用名，首先获取spring:application:name的值，如果取值为空，则取默认unknown。
+    appname: ${spring.application.name}
+    # 注册到eureka上的唯一实例ID，不能与相同appname的其他实例重复。
+    instanceId: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+    # 实例续约间隔时间
+    lease-renewal-interval-in-seconds: 5
+    # 实例超时时间，表示最大leaseExpirationDurationInSeconds秒后没有续约，Server就认为他不可用了，随之就会将其剔除。
+    lease-expiration-duration-in-seconds: 120
+    # 实例状态页相对url
+    status-page-url-path: ${management.endpoints.web.base-path}/info
+    # 实例健康检查相对URL
+    health-check-url-path: ${management.endpoints.web.base-path}/health
+    # 实例元数据，可以供其他实例使用。比如spring-boot-admin在监控时，获取实例的上下文和端口。
+    metadata-map:
+      zone: primary # This is needed for the load balancer
+      profile: ${spring.profiles.active}
+      version: ${info.project.version}
+      git-commit-id: ${git.commit.id}
+      git-branch: ${git.branch}
+      management.context-path: ${management.endpoints.web.base-path}
+
+info:
+  project:
+    version: #project.version#
+
+spring:
+  jackson:
+    serialization.write_dates_as_timestamps: false
+  messages:
+    basename: i18n/messages
+    cache-duration: 1
+  thymeleaf:
+    mode: XHTML
+  profiles:
+    include: git
+
+server:
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/javascript,text/css,text/plain,application/javascript
+  servlet:
+    session:
+      cookie:
+        http-only: true
+swagger:
+  title: 零售贷后服务
+  description: 零售贷后服务接口文档
+  contactName: 福田金融科技部
+
+mybatis:
+  mapperLocations: classpath*:mapper/**/*.xml
+
+pagehelper:
+  helperDialect: mysql
+  offsetAsPageNum: true
+  rowBoundsWithCount: true
+  reasonable: false
+  supportMethodsArguments: true
+  params: count=countSql
+
+management:
+  health:
+    mail:
+      enabled: false
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include: "*"
+
